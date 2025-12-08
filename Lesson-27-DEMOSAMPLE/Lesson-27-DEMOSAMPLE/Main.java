@@ -7,6 +7,12 @@ class Main {
 
   void init(){
 
+   print(switching("sample"));
+
+  String msg ="amslep";
+  
+  
+
     // This example we are substituting all lower case 
     // letters to another lower case letter.
     char[] sub = new char[5];
@@ -36,14 +42,14 @@ class Main {
     //Input.writeFile("Encode2.txt",encodedMsg2);
 
     // reverse
-    String encodedMsg3 = reverse(encodedMsg2);
+    String encodedMsg3 = switching(encodedMsg2);
     Input.writeFile("Encode3.txt",encodedMsg3);
 
     
     // decoding message
     String file2 = Input.readFile("Encode1.txt");
     
-    String decodedMsg1 = reverse(file2);
+    String decodedMsg1 = switching(file2);
     //Input.writeFile("Decode1.txt", decodedMsg1);
     
     String decodedMsg2 = decode(decodedMsg1);
@@ -54,10 +60,12 @@ class Main {
     
     
   }
-  // Level 1 reverse string
-  String reverse(String txt){
+  // Level 1 swap string
+  String switching(String txt){
     String bld ="";
-    
+    for(int x=0; x<=txt.length()-3; x+=3){
+    bld+=txt.substring(x+1,x+3)+ txt.substring(x,x+1);
+    }
     return bld;
   }
   
@@ -65,8 +73,13 @@ class Main {
   //Level 2 Cipher encoding with no wrapping
   String encode(String txt){
     String bld="";
-    
-     
+  for( int x=0; x<=txt.length()-2; x+=2){
+    char ch=txt.charAt(x);
+    int ascii = (int) ch;
+    ascii +=2;
+    ch = (char) ascii;
+    bld+= ch;
+  }
     return bld;
   }
 
@@ -77,13 +90,13 @@ class Main {
     return bld;
   }
 
-  // Level 3 Substituion encoding,
+  // Level 3 Substituion encoding
   String subEncryption(String s, char[] sub, char[] sub2){
     String bld="";
    
     return bld;
   }
-  
+
   
   int randInt(int lower, int upper){
     int range = upper - lower;
