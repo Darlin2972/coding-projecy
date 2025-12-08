@@ -11,6 +11,7 @@ class Main {
 
   String msg ="amslep";
   
+   print(encode("amslep"));
   
 
     // This example we are substituting all lower case 
