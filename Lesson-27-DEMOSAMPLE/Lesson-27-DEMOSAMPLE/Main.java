@@ -77,7 +77,7 @@ class Main {
     return bld;
   }
 
-  // Level 3 Substituion encoding
+  // Level 3 Substituion encoding,
   String subEncryption(String s, char[] sub, char[] sub2){
     String bld="";
    
