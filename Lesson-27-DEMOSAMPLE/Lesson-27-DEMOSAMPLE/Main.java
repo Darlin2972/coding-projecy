@@ -65,7 +65,7 @@ class Main {
   String switching(String txt){
     String bld ="";
     for(int x=0; x<=txt.length()-3; x+=3){
-    bld+=txt.substring(x+1,x+3)+ txt.substring(x,x+3);
+    bld+=txt.substring(x+1,x+3)+ txt.substring(x,x+1);
     }
     return bld;
   }
