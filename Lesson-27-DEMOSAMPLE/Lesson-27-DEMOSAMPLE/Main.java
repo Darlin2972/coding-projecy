@@ -7,9 +7,9 @@ class Main {
 
   void init(){
 
-   print(switching("sample"));
+   print(switching("the sample"));
 
-  String msg ="amslep";
+  String msg ="hetsa plm";
   
    print(encode(msg));
   
@@ -74,10 +74,12 @@ class Main {
   //Level 2 Cipher encoding with no wrapping
   String encode(String txt){
     String bld="";
-  for( int x=0; x<=txt.length()-2; x+=2){
-    char ch=txt.charAt(x);
-    int ascii = (int) ch;
-    ascii +=2;
+    char ch = ' ';
+    int ascii =0;
+  for( int x=0; x<=txt.length()-1; x++){
+   ch = txt.charAt(x);
+    ascii = (int) ch;
+    ascii++;
     ch = (char) ascii;
     bld+= ch;
   }
