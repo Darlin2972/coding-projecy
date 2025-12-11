@@ -69,14 +69,23 @@ class Main {
     for(int x=0; x<=txt.length()-3; x+=3){
     bld+=txt.substring(x+1,x+3)+ txt.substring(x,x+1);
     }
+    if(txt.length()!== 0){
+    bld+= s.substring(s.length()-1)
+    }
     return bld;
   }
+
+    
+    
+  
+    
+    
   
   // Level 1 decrypt 
 String decrypt(String txt){
   String bld="";
   for(int x=0; x<=txt.length()-3; x+=3){
-  bld+=txt.substring(x+3,x+1)+ txt.substring(x+1,x);
+  bld+=txt.substring(x+2,x+3)+ txt.substring(x,x+2);
 }
    return bld;
 }
