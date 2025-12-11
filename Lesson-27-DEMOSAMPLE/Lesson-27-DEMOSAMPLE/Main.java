@@ -87,9 +87,11 @@ String decrypt(String txt){
   for(int x=0; x<=txt.length()-3; x+=3){
   bld+=txt.substring(x+2,x+3)+ txt.substring(x,x+2);
 }
-   return bld;
-}
-
+ if(txt.length()%3==1){
+    bld+= txt.substring(txt.length()-1);
+  }
+  return bld;
+  }
 
   
   //Level 2 Cipher encoding with no wrapping
