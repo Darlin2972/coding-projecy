@@ -7,28 +7,30 @@ class Main {
 
   void init(){
 
-   print(switching("the sample"));
+   print(switching("THE SAMPLE"));
+   
+   print(decrypt("HETSA PLM"));
 
-  String msg ="hetsa plm";
+  String msg ="HETSA PLM";
   
-   print(encode(msg));
+  print(encode(msg));
   
 
     // This example we are substituting all lower case 
     // letters to another lower case letter.
     char[] sub = new char[5];
-    sub[0] = 'a';
-    sub[1] = 'e';
-    sub[2] = 'i';
-    sub[3] = 'o';
-    sub[4] = 'u';
+    sub[0] = 'I';
+    sub[1] = 'U';
+    sub[2] = 'B';
+    sub[3] = 'Q';
+    sub[4] = 'N';
 
     char[] sub2 = new char[5];
-    sub2[0] = '\u2663';  // Club
-    sub2[1] = '\u2660';  // Spade
-    sub2[2] = '\u2665';  // Heart
-    sub2[3] = '\u2666';  // Diamond
-    sub2[4] = '\u2836';  // Bralle symbol
+    sub2[0] = '\u3127';  //ㄧ for letter I
+    sub2[1] = '\u3128';  // ㄨ for letter U
+    sub2[2] = '\u3105';  // ㄅ for letter B
+    sub2[3] = '\u3111';  // ㄑ for letter Q
+    sub2[4] = '\u310B';  // ㄋ for letter N
 
     
     // Encoding message
@@ -70,6 +72,16 @@ class Main {
     return bld;
   }
   
+  // Level 1 decrypt 
+String decrypt(String txt){
+  String bld="";
+  for(int x=0; x<=txt.length()-3; x+=3){
+  bld+=txt.substring(x+3,x+1)+ txt.substring(x+1,x);
+}
+   return bld;
+}
+
+
   
   //Level 2 Cipher encoding with no wrapping
   String encode(String txt){
@@ -96,6 +108,7 @@ class Main {
   // Level 3 Substituion encoding
   String subEncryption(String s, char[] sub, char[] sub2){
     String bld="";
+    
    
     return bld;
   }
