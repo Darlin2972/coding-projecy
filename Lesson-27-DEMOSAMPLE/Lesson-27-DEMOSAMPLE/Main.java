@@ -14,6 +14,10 @@ class Main {
   String msg ="HETSA PLME";
   
   print(encode(msg));
+
+  String msg1="IFUTB!QMNF";
+  print(decode(msg1));
+
   
 
     // This example we are substituting all lower case 
@@ -112,7 +116,15 @@ String decrypt(String txt){
   
   String decode(String txt){
     String bld="";
-   
+    char ch = ' ';
+    int ascii =0;
+  for( int x=0; x<=txt.length()-1; x++){
+   ch = txt.charAt(x);
+    ascii = (int) ch;
+    ascii--;
+    ch = (char) ascii;
+    bld+= ch;
+  }
     return bld;
   }
 
