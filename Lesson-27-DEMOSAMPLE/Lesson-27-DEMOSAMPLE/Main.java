@@ -6,6 +6,7 @@ class Main {
   void printt(Object o){ System.out.print(o);}
 
   void init(){
+  
 
    print(switching("THE SAMPLE"));
    
@@ -129,23 +130,23 @@ String decrypt(String txt){
   }
 
   // Level 3 Substituion encoding
+char subt(char ch, char[] letter1, char[]letter2){
+for(int x=0; x<letter1.length; x++){
+  if(letter1 [x]==ch){
+    return letter2[x];
+  }
+}
+  return ch;
+}
+
   String subEncryption(String f, char[] letter1, char[] letter2){
     String bld="";
-    char ch =' ';
-    int index = 0;
     for(int x=0; x<=f.length()-1; x++){
-      ch = f.charAt(x);
-      index = indexOf(ch, letter1);
-      if( index !=-1){
-        bld+= letter2[index];
-      }
-      else{
-        bld+=ch;
-      }
-    } 
-    return bld;
+    char ch = f.charAt(x);
+    bld+=subt(ch,letter1,letter2);
+    }
+  return bld;
   }
-
   
   int randInt(int lower, int upper){
     int range = upper - lower;
