@@ -22,26 +22,26 @@ class Main {
 
     // This example we are substituting all lower case 
     // letters to another lower case letter.
-    char[] sub = new char[5];
-    sub[0] = 'I';
-    sub[1] = 'U';
-    sub[2] = 'B';
-    sub[3] = 'Q';
-    sub[4] = 'N';
+    char[] letter1 = new char[5];
+    letter1[0] = 'I';
+    letter1[1] = 'U';
+    letter1[2] = 'B';
+    letter1[3] = 'Q';
+    letter1[4] = 'N';
 
-    char[] sub2 = new char[5];
-    sub2[0] = '\u3127';  //ㄧ for letter I
-    sub2[1] = '\u3128';  // ㄨ for letter U
-    sub2[2] = '\u3105';  // ㄅ for letter B
-    sub2[3] = '\u3111';  // ㄑ for letter Q
-    sub2[4] = '\u310B';  // ㄋ for letter N
+    char[] letter2 = new char[5];
+    letter2[0] = '\u3127';  //ㄧ for letter I
+    letter2[1] = '\u3128';  // ㄨ for letter U
+    letter2[2] = '\u3105';  // ㄅ for letter B
+    letter2[3] = '\u3111';  // ㄑ for letter Q
+    letter2[4] = '\u310B';  // ㄋ for letter N
 
     
     // Encoding message
     String file = Input.readFile("test.txt");
 
     //substituion
-    String encodedMsg1 = subEncryption(file,sub,sub2);
+    String encodedMsg1 = subEncryption(file,letter1,letter2);
     //Input.writeFile("Encode1.txt",encodedMsg1);
 
     // caesar cipher
@@ -62,7 +62,7 @@ class Main {
     String decodedMsg2 = decode(decodedMsg1);
     //Input.writeFile("Decode2.txt", decodedMsg2);
     
-     String decodedMsg3 = subEncryption(decodedMsg2, sub2, sub);
+     String decodedMsg3 = subEncryption(decodedMsg2, letter2, letter1);
     //Input.writeFile("Decode1.txt", decodedMsg3);
     
     
@@ -129,10 +129,20 @@ String decrypt(String txt){
   }
 
   // Level 3 Substituion encoding
-  String subEncryption(String s, char[] sub, char[] sub2){
+  String subEncryption(String f, char[] letter1, char[] letter2){
     String bld="";
-    
-   
+    char ch =' ';
+    int index = 0;
+    for(int x=0; x<=f.length()-1; x++){
+      ch = f.charAt(x);
+      index = indexOf(ch, letter1);
+      if( index !=-1){
+        bld+= letter2[index];
+      }
+      else{
+        bld+=ch;
+      }
+    } 
     return bld;
   }
 
