@@ -6,7 +6,6 @@ class Main {
   void printt(Object o){ System.out.print(o);}
 
   void init(){
-  
 
    print(switching("THE SAMPLE"));
    
@@ -19,10 +18,9 @@ class Main {
   String msg1="IFUTB!QMNF";
   print(decode(msg1));
 
+   print(subEncryption("IFUTB!QMNF"));
   
 
-    // This example we are substituting all lower case 
-    // letters to another lower case letter.
     char[] letter1 = new char[5];
     letter1[0] = 'I';
     letter1[1] = 'U';
@@ -37,33 +35,38 @@ class Main {
     letter2[3] = '\u3111';  // ㄑ for letter Q
     letter2[4] = '\u310B';  // ㄋ for letter N
 
+
+    
+    
+
+
     
     // Encoding message
-    String file = Input.readFile("test.txt");
+    //String file = Input.readFile("test.txt");
 
     //substituion
-    String encodedMsg1 = subEncryption(file,letter1,letter2);
-    //Input.writeFile("Encode1.txt",encodedMsg1);
+    //String encodedMsg1 = subEncryption(file,letter1,letter2);
+    //Input.writeFile("Encode1.txt", encodedMsg1);
 
     // caesar cipher
-    String encodedMsg2 = encode(encodedMsg1);
+    //String encodedMsg2 = encode(encodedMsg1);
     //Input.writeFile("Encode2.txt",encodedMsg2);
 
     // reverse
-    String encodedMsg3 = switching(encodedMsg2);
-    Input.writeFile("Encode3.txt",encodedMsg3);
+    //String encodedMsg3 = switching(encodedMsg2);
+    //Input.writeFile("Encode3.txt",encodedMsg3);
 
     
     // decoding message
-    String file2 = Input.readFile("Encode1.txt");
+    //String file2 = Input.readFile("Encode1.txt");
     
-    String decodedMsg1 = switching(file2);
+    //String decodedMsg1 = switching(file2);
     //Input.writeFile("Decode1.txt", decodedMsg1);
     
-    String decodedMsg2 = decode(decodedMsg1);
+    //String decodedMsg2 = decode(decodedMsg1);
     //Input.writeFile("Decode2.txt", decodedMsg2);
     
-     String decodedMsg3 = subEncryption(decodedMsg2, letter2, letter1);
+    // String decodedMsg3 = subEncryption(decodedMsg2, letter2, letter1);
     //Input.writeFile("Decode1.txt", decodedMsg3);
     
     
@@ -130,27 +133,31 @@ String decrypt(String txt){
   }
 
   // Level 3 Substituion encoding
-char subt(char ch, char[] letter1, char[]letter2){
-for(int x=0; x<letter1.length; x++){
-  if(letter1 [x]==ch){
-    return letter2[x];
-  }
-}
-  return ch;
-}
+
 
   String subEncryption(String f, char[] letter1, char[] letter2){
     String bld="";
-    for(int x=0; x<=f.length()-1; x++){
-    char ch = f.charAt(x);
-    bld+=subt(ch,letter1,letter2);
-    }
+  char ch ='\0';
+  for(int x=0; x<=f.length()-1; x++){
+    ch=f.charAt(x);
+    bld+=subt(ch, letter1, letter2);
+  }
   return bld;
   }
+  
+
+
+   char subt(char ch, char[] letter1, char[] letter2){
+    for(int x=0; x<letter1.length; x++){
+      if(letter1[x]==ch){
+        return letter2[x];
+      }
+    }
+    return ch;
+   }
   
   int randInt(int lower, int upper){
     int range = upper - lower;
     return (int)(Math.random()*range+lower);
   }
-
 }
