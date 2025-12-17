@@ -7,18 +7,18 @@ class Main {
 
   void init(){
 
-   print(switching("THE SAMPLE"));
+   print("Encoded: "+ switching("THE SAMPLE"));
    
-   print(decrypt("HETSA PLME"));
+   print("Decoded: "+ decrypt("HETSA PLME"));
 
   String msg ="HETSA PLME";
   
-  print(encode(msg));
+  print("Encoded: "+ encode(msg));
 
   String msg1="IFUTB!QMNF";
-  print(decode(msg1));
+  print("Decoded:" + decode(msg1));
 
-   print(subEncryption("IFUTB!QMNF"));
+  
   
 
     char[] letter1 = new char[5];
@@ -36,7 +36,8 @@ class Main {
     letter2[4] = '\u310B';  // ㄋ for letter N
 
 
-    
+    print("Encoded: "+ subEncryption("IFUTB!QMNF",letter1, letter2));
+    print("Decoded:" + subEncryption("ㄧFㄨTㄅ!ㄑMㄋF",letter2, letter1));
     
 
 
@@ -156,6 +157,29 @@ String decrypt(String txt){
     return ch;
    }
   
+
+  //deEncryption
+    String deEncryption(String f, char[] letter1, char[] letter2){
+    String bld="";
+  char ch ='\0';
+  for(int x=0; x<=f.length()-1; x++){
+    ch=f.charAt(x);
+    bld+=subt(ch, letter2, letter1);
+  }
+  return bld;
+  }
+  
+
+  
+   char subz(char ch, char[] letter1, char[] letter2){
+    for(int x=0; x<letter1.length; x++){
+      if(letter2[x]==ch){
+        return letter1[x];
+      }
+    }
+    return ch;
+   }
+
   int randInt(int lower, int upper){
     int range = upper - lower;
     return (int)(Math.random()*range+lower);
